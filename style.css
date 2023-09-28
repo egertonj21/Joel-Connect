@@ -1,0 +1,25 @@
+
+.highlight{
+    color: red;
+    background-color: yellow;
+
+}
+
+button{
+    height: 30px;
+    width: 80px;
+    background-color: aqua;
+    font-style: oblique;
+    color: purple;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.spacer{
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+
+}
