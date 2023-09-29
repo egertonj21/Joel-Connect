@@ -23,3 +23,27 @@ button{
     /* background-color: red; */
 
 }
+
+#enterButton{
+    width: 320px;
+    background-color: red;
+    color: white;
+
+}
+
+box{
+    height: 30px;
+    width: 80px;
+    border: 4px;
+    color: blue;
+    background-color: chartreuse;
+    border-style: double;
+    border-color: black;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+}
+.used{
+    background-color: black;
+    color: grey;
+}
