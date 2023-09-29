@@ -1,6 +1,8 @@
 /*
-TODO add check answer button - and necessary logic
-TODO add answer lines
+blatant rip off from Only Connect's wall round
+#TODO - better setup & add more 'WordGroups'
+#TODO - add quit & reset buttons
+
 
 */
 var guess = [];
@@ -18,10 +20,8 @@ var wordGroup3 = new WordGroup("paris", "dublin", "belfast", "london", ["paris",
 var wordGroup4 = new WordGroup("hat", "shirt", "jumper", "trousers", ["hat", "shirt", "jumper", "trousers"]);
 var fullgrid = ["hat", "shirt", "jumper", "trousers","paris", "dublin", "belfast", "london","daisy", "bluebell", "rose", "daffodil",
 "robin", "starling", "sparrow", "thrush"];
-wordArray1 = wordGroup1.wordArray.sort();
-wordArray2 = wordGroup2.wordArray.sort();
-wordArray3 = wordGroup3.wordArray.sort();
-wordArray4 = wordGroup4.wordArray.sort();
+var correctGroup = 0;
+
 
 function generateUniqueRandomNumbers(min, max, count) {
    if (count > max - min + 1) {
@@ -55,6 +55,8 @@ for(var i = 0; i<fullgrid.length; i++){
 }
 
 function arraysEqual(arr1, arr2) {
+  arr1=arr1.sort();
+  arr2=arr2.sort();
   if (arr1.length !== arr2.length) return false;
   for (var i = 0; i < arr1.length; i++) {
     if (arr1[i] !== arr2[i]) return false;
@@ -78,35 +80,115 @@ $("#enterButton").click(function(){
   }
   
   if(highlighted===4){
-    guess=guess.sort();
-    alert(guess);
-    alert(wordArray1)
-    if (arraysEqual(guess, wordArray1)) {
-      for (var i = 0; i < guess.length; i++) {
-        $("#box" + (i + 1)).text(guess[i]);
-        $("#box" + (i + 1)).removeClass("hidden");
-      }
-      for (var i = 0; i < 17; i++) {
-      if($("#bt"+(i+1)).hasClass("highlight")){
-        $("#bt"+(i+1)).addClass("used");
-        $("#bt"+(i+1)).removeClass("highlight");
-      }
-    }
-    }
-    else{
-      alert("incorrect")
-      for (var i = 0; i < 17; i++) {
+    
+    // alert(guess);
+    // alert(wordArray1);
+
+    switch(correctGroup){
+      case 0:
+        if (arraysEqual(guess, wordGroup1.wordArray) || arraysEqual(guess, wordGroup2.wordArray) || arraysEqual(guess, wordGroup3.wordArray) 
+        || arraysEqual(guess, wordGroup4.wordArray))  {
+          for (var i = 0; i < guess.length; i++) {
+            $("#box" + (i + 1)).text(guess[i]);
+            $("#box" + (i + 1)).removeClass("hidden");
+          }
+          for (var i = 0; i < 17; i++) {
+          if($("#bt"+(i+1)).hasClass("highlight")){
+            $("#bt"+(i+1)).addClass("used");
+            $("#bt"+(i+1)).removeClass("highlight");
+          }
+        }
+        correctGroup++;
+        }
+        else{
+          alert("incorrect")
+          for (var i = 0; i < 17; i++) {
+            if($("#bt"+(i+1)).hasClass("highlight")){
+              $("#bt"+(i+1)).removeClass("highlight");
+            }
+          }
+        }
+        break;
+      case 1:
+        if (arraysEqual(guess, wordGroup1.wordArray) || arraysEqual(guess, wordGroup2.wordArray) || arraysEqual(guess, wordGroup3.wordArray) 
+        || arraysEqual(guess, wordGroup4.wordArray))  {
+        for (var i = 0; i < guess.length; i++) {
+          $("#box" + (i + 5)).text(guess[i]);
+          $("#box" + (i + 5)).removeClass("hidden");
+        }
+        for (var i = 0; i < 17; i++) {
         if($("#bt"+(i+1)).hasClass("highlight")){
+          $("#bt"+(i+1)).addClass("used");
           $("#bt"+(i+1)).removeClass("highlight");
         }
       }
+      correctGroup++;
+      }
+      else{
+        alert("incorrect")
+        for (var i = 0; i < 17; i++) {
+          if($("#bt"+(i+1)).hasClass("highlight")){
+            $("#bt"+(i+1)).removeClass("highlight");
+          }
+        }
+      }
+      break;
+      
+      case 2:
+        if (arraysEqual(guess, wordGroup1.wordArray) || arraysEqual(guess, wordGroup2.wordArray) || arraysEqual(guess, wordGroup3.wordArray) 
+        || arraysEqual(guess, wordGroup4.wordArray))  {
+        for (var i = 0; i < guess.length; i++) {
+          $("#box" + (i + 9)).text(guess[i]);
+          $("#box" + (i + 9)).removeClass("hidden");
+        }
+        for (var i = 0; i < 17; i++) {
+        if($("#bt"+(i+1)).hasClass("highlight")){
+          $("#bt"+(i+1)).addClass("used");
+          $("#bt"+(i+1)).removeClass("highlight");
+        }
+      }
+      correctGroup++;
+      }
+      else{
+        alert("incorrect")
+        for (var i = 0; i < 17; i++) {
+          if($("#bt"+(i+1)).hasClass("highlight")){
+            $("#bt"+(i+1)).removeClass("highlight");
+          }
+        }
+      }
+      break;
+      case 3:
+        if (arraysEqual(guess, wordGroup1.wordArray) || arraysEqual(guess, wordGroup2.wordArray) || arraysEqual(guess, wordGroup3.wordArray) 
+        || arraysEqual(guess, wordGroup4.wordArray))  {
+        for (var i = 0; i < guess.length; i++) {
+          $("#box" + (i + 13)).text(guess[i]);
+          $("#box" + (i + 13)).removeClass("hidden");
+        }
+        for (var i = 0; i < 17; i++) {
+        if($("#bt"+(i+1)).hasClass("highlight")){
+          $("#bt"+(i+1)).addClass("used");
+          $("#bt"+(i+1)).removeClass("highlight");
+        }
+      }
+      correctGroup++;
+      }
+      else{
+        alert("incorrect")
+        for (var i = 0; i < 17; i++) {
+          if($("#bt"+(i+1)).hasClass("highlight")){
+            $("#bt"+(i+1)).removeClass("highlight");
+          }
+        }
+      }
+      break;
     }
   highlighted=0;
   guess=[];
-  alert("highhlighted =" +highlighted);
+  // alert("highhlighted =" +highlighted);
   }
   else{
-    alert("highlighted =" +highlighted);
+    // alert("highlighted =" +highlighted);
     alert("select four answers");
     for (var i = 0; i < 17; i++) {
       if($("#bt"+(i+1)).hasClass("highlight")){
