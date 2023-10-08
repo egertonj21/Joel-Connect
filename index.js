@@ -5,37 +5,21 @@ blatant rip off from Only Connect's wall round
 
 
 */
-
-import { convertCsvToArray } from "read-csv-as-array";
-
-const arrayAll = await convertCsvToArray("groupList.csv", ",");
-// alert(arrayAll);
-var wordGroup1 = new WordGroup(arrayAll[1], arrayAll[2], arrayAll[3], arrayAll[4], arrayAll[5]);
-var wordGroup2 = new WordGroup(arrayAll[7], arrayAll[8], arrayAll[9], arrayAll[10], arrayAll[11]);
-var wordGroup3 = new WordGroup(arrayAll[13], arrayAll[14], arrayAll[15], arrayAll[16], arrayAll[17]);
-var wordGroup4 = new WordGroup(arrayAll[19], arrayAll[20], arrayAll[21], arrayAll[22], arrayAll[23]);
-var fullgrid = [arrayAll[1], arrayAll[2], arrayAll[3], arrayAll[4], arrayAll[7], arrayAll[8], arrayAll[9], arrayAll[10], arrayAll[13], arrayAll[14], arrayAll[15], arrayAll[16],
-arrayAll[19], arrayAll[20], arrayAll[21], arrayAll[22]];
-// for(var i = 0;i<5; i++){
-//     var wordGroup + (i+1) = 
-// }
-
 var guess = [];
-function WordGroup(firstWord, secondWord, thirdWord, fourthWord, connection){
+function WordGroup(firstWord, secondWord, thirdWord, fourthWord, wordArray){
    this.firstWord =firstWord;
    this.secondWord =secondWord;
    this.thirdWord = thirdWord;
    this.fourthWord = fourthWord;
-   this.wordArray = [firstWord, secondWord, thirdWord, fourthWord];
-   this.connection = connection;
+   this.wordArray = wordArray;
 }
 
-// var wordGroup1 = new WordGroup("robin", "starling", "sparrow", "thrush", ["robin", "starling", "sparrow", "thrush"]);
-// var wordGroup2 = new WordGroup("daisy", "bluebell", "rose", "daffodil", ["daisy", "bluebell", "rose", "daffodil"]);
-// var wordGroup3 = new WordGroup("paris", "dublin", "belfast", "london", ["paris", "dublin", "belfast", "london"]);
-// var wordGroup4 = new WordGroup("hat", "shirt", "jumper", "trousers", ["hat", "shirt", "jumper", "trousers"]);
-// var fullgrid = ["hat", "shirt", "jumper", "trousers","paris", "dublin", "belfast", "london","daisy", "bluebell", "rose", "daffodil",
-// "robin", "starling", "sparrow", "thrush"];
+var wordGroup1 = new WordGroup("robin", "starling", "sparrow", "thrush", ["robin", "starling", "sparrow", "thrush"]);
+var wordGroup2 = new WordGroup("daisy", "bluebell", "rose", "daffodil", ["daisy", "bluebell", "rose", "daffodil"]);
+var wordGroup3 = new WordGroup("paris", "dublin", "belfast", "london", ["paris", "dublin", "belfast", "london"]);
+var wordGroup4 = new WordGroup("hat", "shirt", "jumper", "trousers", ["hat", "shirt", "jumper", "trousers"]);
+var fullgrid = ["hat", "shirt", "jumper", "trousers","paris", "dublin", "belfast", "london","daisy", "bluebell", "rose", "daffodil",
+"robin", "starling", "sparrow", "thrush"];
 var correctGroup = 0;
 
 
